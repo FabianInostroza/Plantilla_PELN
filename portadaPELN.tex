@@ -1,0 +1,59 @@
+% !TeX root=PELN_Inostroza.tex
+%\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\begin{titlepage}
+\begin{center}
+%\begin{Large}
+{\LARGE\textbf{UNIVERSIDAD DE CONCEPCIÓN}}\\[.4em]
+{\Large FACULTAD DE INGENIERÍA}\\[.4em]%\par
+{\large DEPARTAMENO DE INGENIERÍA ELÉCTRICA}\\[2cm]
+\end{center}
+\vskip 2cm
+%\vskip 1cm
+\hfill
+\begin{minipage}{0.22\textwidth}
+%\begin{center}
+\includegraphics[width=\textwidth]{logoudec}%\\[1cm]
+%\end{center}
+\end{minipage}
+\hspace{0.055\textwidth}
+\begin{minipage}{.33\textwidth}
+%\begin{center}
+\makeatletter
+{\large Profesor Guía:\\[.5em]
+\@ProfGuia}%\\[1cm]
+\makeatother
+%\end{center}
+\end{minipage}
+\vskip 2cm
+\begin{center}
+\ifdefined\InfAvance
+\textit{Informe de Avance}\\[.5em]
+\else
+\textit{Informe Final}\\[.5em]
+\fi
+{\LARGE\textbf{547325 Proyecto Electrónico}}\par
+\vskip\fill
+% Autor y supervisor
+%{\LARGE{\textbf{\textsf{\Author}}}}\\[1.6cm]
+\begin{minipage}{0.9\textwidth}
+\begin{center}
+{\LARGE\Title \par}
+\end{center}
+\end{minipage}
+\vfill
+\end{center}
+
+Concepción, \today
+\hfill
+\Author%Fabián Antonio Inostroza Paredes
+
+\ifdefined\NoBgThispage
+\NoBgThispage
+\fi
+%\setcounter{page}{0}
+\end{titlepage}
+% WTF, tengo que agregar esto fuera y dentro del titlepage
+% para que no tire error
+\ifdefined\NoBgThispage
+\NoBgThispage
+\fi

@@ -1,0 +1,63 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+% !TEX spellcheck = es_CL
+% Creado por Fabian Inostroza, 2015
+
+\pdfinclusioncopyfonts=0
+\pdfcompresslevel=9
+\documentclass[12pt,letterpaper, oneside, titlepage]{book}
+\usepackage[activeacute,spanish,es-tabla]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{ucs}
+
+% formato pagina oficial
+\usepackage[letterpaper,headheight=14.5pt,headsep=.8cm,%
+				top=2.5cm,left=2.5cm,right=2cm, bottom=2cm]%
+				{geometry}
+
+\newcommand{\InfAvance}{}% comentar para el informe final
+
+%\newcommand{\colorlinks}{false} % version impresion
+\newcommand{\colorlinks}{true} % version pantalla
+
+\author{Nombre alumno}
+\title{Título del trabajo}
+
+\input{preambulo}
+
+\ProfGuia{Profesor Guia}
+
+\begin{document}
+\pagenumbering{Roman}
+\input{portadaPELN}
+
+\pagenumbering{roman}
+\pagestyle{fancy}
+
+\setstretch{1.3}
+\include{resumen}
+
+\setstretch{1}
+\tableofcontents
+\newpage
+\include{nomenclatura}
+\include{abreviaciones}
+%\listoffigures
+\newpage
+%\linespread{1.3}
+\pagenumbering{arabic}
+
+\setstretch{1.3}
+\include{Introduccion}
+\include{Estado-de-avance-del-trabajo}
+\include{Resultados-preliminares}
+\include{Carta-gantt}
+%\include{Conclusion}
+\input{Bibliografia}
+%\cleardoublepage
+\appendix
+% si se usa \include los apendice no aparecen en el toc
+\input{apendice}
+
+
+\end{document}

@@ -1,0 +1,231 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+% !TEX spellcheck = es_CL
+% !TEX root = PELN_Inostroza.tex
+
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+
+\usepackage{xcolor}
+
+\usepackage{graphicx}
+\usepackage{caption}%
+%\captionsetup{labelfont=bf} % solo etiqueta en negrita
+\captionsetup{font={bf,small}}% todo el titulo en negrita
+\usepackage{subcaption} % reemplaza a subfig y 
+
+%\usepackage[titletoc,toc,title]{appendix}
+%\usepackage[titletoc,toc]{appendix}
+
+\usepackage{longtable}
+
+% Agregar directorio donde buscar figuras
+\graphicspath{{./figuras/}}
+
+\definecolor{tableau10_1}{RGB}{31,119,180}
+\definecolor{tableau10_2}{RGB}{255,127,14}
+\definecolor{tableau10_3}{RGB}{44,160,44}
+\definecolor{tableau10_4}{RGB}{214,39,40}
+\definecolor{tableau10_5}{RGB}{148,103,189}
+\definecolor{tableau10_6}{RGB}{140,86,75}
+\definecolor{tableau10_7}{RGB}{227,119,194}
+\definecolor{tableau10_8}{RGB}{127,127,127}
+\definecolor{tableau10_9}{RGB}{188,189,34}
+\definecolor{tableau10_10}{RGB}{23,190,207}
+\definecolor{gray75}{gray}{0.75}
+
+\definecolor{MSBlue}{rgb}{.204,.353,.541}
+\definecolor{MSLightBlue}{rgb}{.31,.506,.741}
+
+
+\usepackage{booktabs}
+%\usepackage{sectsty}
+%\chapterfont{\Large}
+%\chapterfont{\color{tableau10_1}}
+%\sectionfont{\color{tableau10_1}}
+%\allsectionsfont{\color{tableau10_1}} % equivalente a arriba
+
+\newcommand{\hsp}{\hspace{20pt}}
+\newcommand{\chaprule}{\titlerule[1.5pt]}
+\usepackage{titlesec}
+\titlespacing*{\chapter}{0pt}{0pt}{20pt}
+\titleformat{\chapter}[hang] % Customise the \section command
+{\Large\sffamily\bfseries\raggedright}%
+{\chaptertitlename~\thechapter.}{1em}% sections, like 'Section ...'
+{} % Can be used to insert code before the heading
+[\chaprule] % Inserts a horizontal line after the heading 
+
+\titleformat{name=\section,numberless}[hang]
+  {\large\sffamily\bfseries\raggedright}
+  {}
+  {0em}
+  {}[]
+
+% Capitulos sin numero sin regla inferior
+\titleformat{name=\chapter,numberless}[hang]
+  {\Large\sffamily\bfseries\raggedright}
+  {}
+  {0em}
+  {}[]
+
+\renewcommand{\headrulewidth}{0pt}%
+\fancyhf{}
+\fancyhead[r]{\thepage}
+
+
+% activar solo en la version final
+% para que la compilacion no tome tanto tiempo
+%\usepackage[pages=some]{background}
+\usepackage{background}
+
+\backgroundsetup{
+scale=1,
+color=black,
+opacity=0.05,
+angle=0,
+contents={%
+  \includegraphics[scale=0.5]{logoudec}
+  }%
+}
+
+\newcommand{\monthname}{%
+  \ifcase\the\month
+  \or Enero% 1
+  \or Febrero% 2
+  \or Marzo% 3
+  \or Abril% 4
+  \or Mayo% 5
+  \or Junio% 6
+  \or Julio% 7
+  \or Agosto% 8
+  \or Septiembre% 9
+  \or Octubre% 10
+  \or Noviembre% 11
+  \or Diciembre% 12
+  \fi}
+
+%\usepackage{xwatermark}
+
+%\DeclareTextFontCommand{\texthv}{\fontencoding{T1}\fontfamily{cmss}\fontseries{bx}\fontshape{n}\selectfont}
+%\DeclareTextFontCommand{\textcmss}{\usefont{OT1}{cmss}{bx}{n}}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+%\usepackage{tocloft}
+%\cftsetindents{section}{0em}{3em}
+%\cftsetindents{subsection}{3em}{4em}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% FUENTES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[T1]{fontenc}
+% si se usa codificacion T1 y se prefiere
+% la fuente textsf en negrita y mas gruesa,
+% cargar el paquete lmodern, de lo contrario
+% se usa otra fuente
+% http://tex.stackexchange.com/questions/227063/fontenc-changes-sans-serif-bold-font-in-koma-script
+%\usepackage{lmodern}
+% si se usa tgpagella esto es solo para cargar las 
+% fuentes matematicas
+%\usepackage[sc]{mathpazo}
+%\linespread{1.05}
+
+%\usepackage{tgpagella}
+%\usepackage[T1]{fontenc}
+
+%\usepackage[minionint,textlf]{MinionPro}
+%\renewcommand{\sfdefault}{Myriad-LF}
+
+\usepackage{newtxtext} % fuente times, texto
+%\usepackage{newtxmath} % fuente times, math
+%\usepackage[varg,cmintegrals, cmbraces]{newtxmath}
+\usepackage[cmintegrals, cmbraces, uprightGreek]{newtxmath}
+
+%\usepackage{helvet}
+%\renewcommand{\familydefault}{\sfdefault}
+
+\usepackage{microtype}
+
+\usepackage{listings}
+\lstset{breaklines=true,basicstyle=\small\ttfamily,} 
+
+% Corrige la separacion entre el numero de la figura/tabla y
+% el texto en el indice cuando los numeros son muy
+% largos (ej: 10.10), http://tex.stackexchange.com/a/22984
+\makeatletter
+\renewcommand*\l@figure{\@dottedtocline{1}{1.5em}{2.8em}}% 3em instead of 2.3em
+\let\l@table\l@figure
+\makeatother
+
+\makeatletter
+\let\Title\@title
+\let\Author\@author
+\makeatother
+
+\usepackage{setspace}
+%\linespread{1.5}
+
+\makeatletter
+\newcommand{\ProfGuia}[1]{\renewcommand\@ProfGuia{#1}}
+\newcommand\@ProfGuia{}
+\makeatother
+
+% numerar ecuaciones como seccion.numero
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\numberwithin{table}{section}
+%\renewcommand{\figurename}{Figura}
+%\renewcommand{\tablename}{Tabla}
+
+%\usepackage{wrapfig}
+
+%%%%%%%%%%%%%%%
+%% BIBLIOGRAFIA
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\renewcommand{\refname}{Bibliografía}
+%\renewcommand{\bibname}{Bibliografía}
+%\usepackage[nottoc,notlot,notlof]{tocbibind}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%              COMANDOS PROPIOS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\vect}[1]{\mathbf{#1}}
+\newcommand{\vects}[1]{\boldsymbol{#1}}
+\DeclareMathOperator{\adj}{adj}
+\DeclareMathOperator{\diag}{diag}
+\newcommand{\Adj}[1]{\adj\{#1\}}
+\newcommand{\Diag}[1]{\diag\{#1\}}
+\newcommand{\Real}[1]{\operatorname{Re}\{#1\}}
+\newcommand{\Imag}[1]{\operatorname{Im}\{#1\}}
+\newcommand{\rango}[1]{\operatorname{rango}\{#1\}}
+%\newcommand{\det}[1]{\operatorname{det}\{#1\}}
+%\newcommand{\arg}[1]{\operatorname{arg}\{#1\}}
+\newcommand{\tr}[1]{\operatorname{tr}\{#1\}}
+
+\newcommand{\ItwoC}{I$^2$C}
+
+\usepackage[pagebackref=true]{hyperref}
+\hypersetup{
+    bookmarks=false,         % show bookmarks bar?
+    unicode=true,          % non-Latin characters in Acrobat’s bookmarks
+%    plainpages=false,
+%    pdfpagelabels=true,
+%    pdftoolbar=true,        % show Acrobat’s toolbar?
+%    pdfmenubar=true,        % show Acrobat’s menu?
+    pdffitwindow=false,     % window fit to page when opened
+    pdfstartview={FitH},    % fits the width of the page to the window
+    pdftitle={Proyecto Electrónico: \Title},    % title
+    pdfauthor={\Author},     % author
+%    pdfsubject={Subject},   % subject of the document
+%    pdfcreator={Creator},   % creator of the document
+%    pdfproducer={Producer}, % producer of the document
+%    pdfkeywords={keyword1} {key2} {key3}, % list of keywords
+    pdfnewwindow=true,      % links in new window
+    colorlinks=\colorlinks,       % false: boxed links; true: colored links
+    linkcolor=tableau10_1,          % color of internal links (change box color with linkbordercolor)
+    linkbordercolor=tableau10_10,
+    citecolor=tableau10_3,        % color of links to bibliography
+    filecolor=magenta,      % color of file links
+    urlcolor=tableau10_1           % color of external links
+}
