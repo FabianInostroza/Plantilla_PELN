@@ -11,18 +11,15 @@
 \usepackage{xcolor}
 
 \usepackage{graphicx}
-\usepackage{caption}%
+\usepackage[hypcap=true]{caption}%
 %\captionsetup{labelfont=bf} % solo etiqueta en negrita
 \captionsetup{font={bf,small}}% todo el titulo en negrita
-\usepackage{subcaption} % reemplaza a subfig y 
+\usepackage[hypcap=true]{subcaption} % reemplaza a subfig y 
 
 %\usepackage[titletoc,toc,title]{appendix}
 %\usepackage[titletoc,toc]{appendix}
 
 \usepackage{longtable}
-
-% Agregar directorio donde buscar figuras
-\graphicspath{{./figuras/}}
 
 \definecolor{tableau10_1}{RGB}{31,119,180}
 \definecolor{tableau10_2}{RGB}{255,127,14}
@@ -39,6 +36,14 @@
 \definecolor{MSBlue}{rgb}{.204,.353,.541}
 \definecolor{MSLightBlue}{rgb}{.31,.506,.741}
 
+% para mostrar algoritmos
+\usepackage[ruled,noend]{algorithm2e}
+\SetKwIF{If}{ElseIf}{Else}{si}{}{sino si}{sino}{fin si}
+%\SetKw{Return}{devolver}
+\SetKwFor{For}{para}{hacer}{fin para}
+%\SetKwFor{ForEach}{para cada}{hacer}{fin para}
+%\SetKwFor{ForAll}{repetir}{veces}{fin repetir}
+\SetKwFor{While}{mientras}{hacer}{fin mientras}
 
 \usepackage{booktabs}
 %\usepackage{sectsty}
@@ -52,23 +57,32 @@
 \usepackage{titlesec}
 \titlespacing*{\chapter}{0pt}{0pt}{20pt}
 \titleformat{\chapter}[hang] % Customise the \section command
-{\Large\sffamily\bfseries\raggedright}%
+{\fontsize{18}{21}\selectfont\sffamily\bfseries\raggedright}%
 {\chaptertitlename~\thechapter.}{1em}% sections, like 'Section ...'
 {} % Can be used to insert code before the heading
 [\chaprule] % Inserts a horizontal line after the heading 
 
+\titleformat{\section}
+{\fontsize{16}{19}\selectfont\bfseries\raggedright}
+{\thesection}{1em}{}
+
+\titleformat{\subsection}
+{\fontsize{14}{17}\selectfont\bfseries\raggedright}
+{\thesubsection}{1em}{}
+
 \titleformat{name=\section,numberless}[hang]
-  {\large\sffamily\bfseries\raggedright}
+  {\fontsize{16}{19}\selectfont\sffamily\bfseries\raggedright}
   {}
   {0em}
   {}[]
 
 % Capitulos sin numero sin regla inferior
 \titleformat{name=\chapter,numberless}[hang]
-  {\Large\sffamily\bfseries\raggedright}
+  {\fontsize{18}{21}\selectfont\sffamily\bfseries\raggedright}
   {}
   {0em}
   {}[]
+
 
 \renewcommand{\headrulewidth}{0pt}%
 \fancyhf{}
@@ -203,7 +217,10 @@ contents={%
 %\newcommand{\arg}[1]{\operatorname{arg}\{#1\}}
 \newcommand{\tr}[1]{\operatorname{tr}\{#1\}}
 
-\newcommand{\ItwoC}{I$^2$C}
+% Apéndice -> Anexo
+\addto{\captionsspanish}{\renewcommand*{\appendixname}{Anexo}}
+
+%\DeclareUnicodeCharacter{00B0}{\ensuremath{^{\circ}}}
 
 \usepackage[pagebackref=true]{hyperref}
 \hypersetup{
