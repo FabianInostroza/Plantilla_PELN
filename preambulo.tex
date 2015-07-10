@@ -12,9 +12,10 @@
 
 \usepackage{graphicx}
 \usepackage[hypcap=true]{caption}%
-%\captionsetup{labelfont=bf} % solo etiqueta en negrita
-\captionsetup{font={bf,small}}% todo el titulo en negrita
-\usepackage[hypcap=true]{subcaption} % reemplaza a subfig y 
+\usepackage[hypcap=true]{subcaption}
+% todo el titulo en negrita y subfiguras se referencian entre
+% parentesis, ej Figura 1a, (a)
+\captionsetup{font={bf,small}, subrefformat=parens}
 
 %\usepackage[titletoc,toc,title]{appendix}
 %\usepackage[titletoc,toc]{appendix}
@@ -46,6 +47,29 @@
 \SetKwFor{While}{mientras}{hacer}{fin mientras}
 
 \usepackage{booktabs}
+
+% para citar y mostrar el texto completo.
+% El paquete IEEEtrantools y una entrada
+% adicional en la base de datos de la
+% bibliografia soluciona los problemas que
+% se producen cuando las ref tienen url
+\usepackage[retainorgcmds]{IEEEtrantools}
+\usepackage{bibentry} % \bibentry
+\nobibliography*
+
+% redefinicion del comando bibentry para que los enlaces 
+% de las citas apunten a la bibliografia y no a donde se
+% usa el bibentry
+\makeatletter
+\newcommand\mybibentry[1]{{\frenchspacing
+     \@nameuse{BR@r@#1\@extra@b@citeb}}~\cite{#1}}
+%% original de bibentry.sty
+%\newcommand\bibentry[1]{\nocite{#1}{\frenchspacing
+%     \hyper@natanchorstart{#1\@extra@b@citeb}%
+%     \@nameuse{BR@r@#1\@extra@b@citeb}\hyper@natanchorend}}
+\makeatother
+
+
 %\usepackage{sectsty}
 %\chapterfont{\Large}
 %\chapterfont{\color{tableau10_1}}
@@ -161,8 +185,72 @@ contents={%
 
 \usepackage{microtype}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% LISTADOS DE CODIGO
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \usepackage{listings}
-\lstset{breaklines=true,basicstyle=\small\ttfamily,} 
+%\lstset{breaklines=true,basicstyle=\small\ttfamily,} 
+\renewcommand{\lstlistingname}{Listado}
+\lstset{ frame=ltbr,
+     framerule=1pt,
+     aboveskip=0.5cm,
+     framextopmargin=3pt,
+     framexbottommargin=3pt,
+     framexleftmargin=0.2cm,
+     framesep=0pt,
+     rulesep=.4pt,
+%     backgroundcolor=\color{gray97},
+     rulesepcolor=\color{black},
+     %
+     stringstyle=\ttfamily,
+     showstringspaces = false,
+     basicstyle=\small\ttfamily,
+     commentstyle=\color{gray45},
+     keywordstyle=\bfseries,
+     %
+     %numbers=left,
+     numbersep=15pt,
+     numberstyle=\tiny,
+     numberfirstline = false,
+     breaklines=true,
+     tabsize=4,
+     extendedchars=true,
+     keepspaces=true,
+     columns=fullflexible, % permite copiar codigo desde el pdf
+}
+
+% para que arroje error cuando se usan caracteres extendidos
+\lstset{literate=
+  {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+  {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+  {à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
+  {À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
+  {ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
+  {Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
+  {â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
+  {Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
+  {œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
+  {ű}{{\H{u}}}1 {Ű}{{\H{U}}}1 {ő}{{\H{o}}}1 {Ő}{{\H{O}}}1
+  {ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
+  {€}{{\EUR}}1 {£}{{\pounds}}1 {ñ}{{\~n}}1
+}
+
+\lstdefinestyle{mlab}{%
+  %style              = Matlab-editor,
+  %basicstyle         = \mlttfamily,
+  %escapechar         = ",
+  %mlshowsectionrules = true,
+  language=MATLAB,
+  keywordstyle=\color{tableau10_1},
+  stringstyle=\color{tableau10_5},
+  commentstyle=\color{tableau10_3},
+% basicstyle=\scriptsize\ttfamily,
+  basicstyle=\footnotesize\ttfamily,
+  numbers=left,
+  numbersep=15pt,
+  morecomment=[l][\color{magenta}]{\#}
+}
 
 % Corrige la separacion entre el numero de la figura/tabla y
 % el texto en el indice cuando los numeros son muy
@@ -224,6 +312,7 @@ contents={%
 
 \usepackage[pagebackref=true]{hyperref}
 \hypersetup{
+	bookmarksnumbered=true,
     bookmarks=false,         % show bookmarks bar?
     unicode=true,          % non-Latin characters in Acrobat’s bookmarks
 %    plainpages=false,

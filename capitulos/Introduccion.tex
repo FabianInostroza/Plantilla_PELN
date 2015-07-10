@@ -10,6 +10,22 @@
 \section{Trabajos previos}
 
 \subsection{Revisión bibliográfica}
+\begin{itemize}
+\item \mybibentry{holder2004eit}.
+
+Esta entrada bibliográfica está almacenada en el archivo \verb|biblio.bib|, con el siguiente formato
+\begin{lstlisting}
+@book{holder2004eit,
+  title={Electrical impedance tomography: methods, history and applications},
+  author={Holder, David S},
+  year={2004},
+  publisher={CRC Press}
+}
+\end{lstlisting}
+
+Para agregar una entrada nueva se debe actualizar el archivo \verb|biblio.bib| con la entrada requerida, citarla en el documento con el comando \verb|\cite{entrada}|, por ejemplo \verb|\cite{holder2004eit}|, compilar el documento \LaTeX{}, y luego ejecutar 
+\verb|bibtex Plantilla_PELN.aux|, en la siguiente compilación del documento \LaTeX{} la referencia será visible.
+\end{itemize}
 
 \subsection{Discusión}
 
@@ -18,3 +34,5 @@
 \section{Alcances y limitaciones}
 
 \section{Metodología}
+
+\input{capitulos/ejemplos}

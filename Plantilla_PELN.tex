@@ -31,6 +31,14 @@
 \graphicspath{{./figuras/}{./mediciones/}}
 
 \begin{document}
+% este comando permite solucionar los problemas cuando
+% las referencias tienen el campo url
+% http://nw360.blogspot.com/2012/05/latex-bibentry-package-and-ieee.html
+% puede que no sea tan util, despues de todo no he encontrado 
+% una forma de excluir la url del texto que genera \bibitem y
+% se ve mal
+\bstctlcite{BSTcontrol}
+
 \pagenumbering{Roman}
 \input{portadaPELN}
 
@@ -41,7 +49,16 @@
 \include{capitulos/resumen}
 
 \setstretch{1}
+
+%% el paquete microtype hace que a veces los puntos en 
+%% el TOC no terminen en el mismo lugar
+%% http://tex.stackexchange.com/a/172795 .
+%% desactivar la protrusion en el TOC
+\microtypesetup{protrusion=false}
 \tableofcontents
+%\listoffigures
+\microtypesetup{protrusion=true}
+
 \newpage
 \include{capitulos/nomenclatura}
 \include{capitulos/abreviaciones}
