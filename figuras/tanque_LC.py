@@ -60,6 +60,7 @@ print freq, T0
 plt.plot(t, sol)
 #ax = plt.gca()
 #ax.ticklabel_format(axis='x', style='sci', scilimits=(-2,2))
+plt.gca().set_axisbelow(True) # regillas tras las lineas
 plt.legend(['V(t)', 'I(t)'])
 plt.grid()
 plt.savefig('LC.pdf', transparent=True)
